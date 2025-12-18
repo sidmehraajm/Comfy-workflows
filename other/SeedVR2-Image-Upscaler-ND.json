@@ -1,0 +1,337 @@
+{
+  "id": "514ebab6-23b6-46d4-b70d-581b8ca62bb9",
+  "revision": 0,
+  "last_node_id": 75,
+  "last_link_id": 90,
+  "nodes": [
+    {
+      "id": 48,
+      "type": "PreviewImage",
+      "pos": [
+        2124.062744140625,
+        35.06142807006836
+      ],
+      "size": [
+        313.42742919921875,
+        418.8395080566406
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 46
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 74,
+      "type": "SeedVR2BlockSwap",
+      "pos": [
+        1476.10107421875,
+        92.759033203125
+      ],
+      "size": [
+        287.873046875,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "block_swap_config",
+          "type": "block_swap_config",
+          "links": [
+            88
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "numz/ComfyUI-SeedVR2_VideoUpscaler",
+        "ver": "984f9af478cbde993c36f1006625753498d2c08d",
+        "Node name for S&R": "SeedVR2BlockSwap"
+      },
+      "widgets_values": [
+        16,
+        false
+      ]
+    },
+    {
+      "id": 22,
+      "type": "SeedVR2ExtraArgs",
+      "pos": [
+        1479.0538330078125,
+        259.4192199707031
+      ],
+      "size": [
+        286.5697021484375,
+        209.88307189941406
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "extra_args",
+          "type": "extra_args",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "numz/ComfyUI-SeedVR2_VideoUpscaler",
+        "ver": "984f9af478cbde993c36f1006625753498d2c08d",
+        "Node name for S&R": "SeedVR2ExtraArgs",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "tiled_vae": true,
+            "vae_tile_size": true,
+            "vae_tile_overlap": true,
+            "preserve_vram": true,
+            "cache_model": true,
+            "enable_debug": true,
+            "device": true
+          }
+        }
+      },
+      "widgets_values": [
+        true,
+        1024,
+        128,
+        true,
+        true,
+        false,
+        "cuda:0"
+      ]
+    },
+    {
+      "id": 75,
+      "type": "Image Comparer (rgthree)",
+      "pos": [
+        2473.503173828125,
+        36.225791931152344
+      ],
+      "size": [
+        312.2579345703125,
+        420.17083740234375
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 89
+        },
+        {
+          "dir": 3,
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 90
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2509092031",
+        "comparer_mode": "Slide"
+      },
+      "widgets_values": [
+        [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_pdoir_00111_.png&type=temp&subfolder=&rand=0.07711689583697756"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_pdoir_00112_.png&type=temp&subfolder=&rand=0.25188355038548504"
+          }
+        ]
+      ]
+    },
+    {
+      "id": 49,
+      "type": "LoadImage",
+      "pos": [
+        1048.9622802734375,
+        5.173941135406494
+      ],
+      "size": [
+        389.88067626953125,
+        502.77081298828125
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            52,
+            89
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "text-to-image-output-aFN3hono8s.png",
+        "image"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "SeedVR2",
+      "pos": [
+        1809.7130126953125,
+        107.09074401855469
+      ],
+      "size": [
+        270,
+        266
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 52
+        },
+        {
+          "name": "block_swap_config",
+          "shape": 7,
+          "type": "block_swap_config",
+          "link": 88
+        },
+        {
+          "name": "extra_args",
+          "shape": 7,
+          "type": "extra_args",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            46,
+            90
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "numz/ComfyUI-SeedVR2_VideoUpscaler",
+        "ver": "4df5cef5937001bcef056d5508c6a884849ffe13",
+        "Node name for S&R": "SeedVR2"
+      },
+      "widgets_values": [
+        "seedvr2_ema_3b_fp8_e4m3fn.safetensors",
+        241285986,
+        "randomize",
+        2160,
+        1,
+        "wavelet",
+        0,
+        0.03
+      ]
+    }
+  ],
+  "links": [
+    [
+      17,
+      22,
+      0,
+      12,
+      2,
+      "extra_args"
+    ],
+    [
+      46,
+      12,
+      0,
+      48,
+      0,
+      "IMAGE"
+    ],
+    [
+      52,
+      49,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      88,
+      74,
+      0,
+      12,
+      1,
+      "block_swap_config"
+    ],
+    [
+      89,
+      49,
+      0,
+      75,
+      0,
+      "IMAGE"
+    ],
+    [
+      90,
+      12,
+      0,
+      75,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9229599817706455,
+      "offset": [
+        -868.6150804891414,
+        173.361237607752
+      ]
+    },
+    "frontendVersion": "1.27.10",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
